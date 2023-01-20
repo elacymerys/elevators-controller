@@ -20,11 +20,14 @@ public class Elevator implements Runnable {
         }
     }
 
+    public void addRequest(Request request) {
+        requests.add(request);
+    }
+
     private void processRequest(Request request) {
         int sourceFloor = request.externalRequest().sourceFloor();
         int destinationFloor = request.internalRequest().destinationFloor();
 
-        System.out.println("Floor: " + currentFloor);
         // first go to external request source floor
         reachFloor(sourceFloor);
         // then go to internal request destination floor
