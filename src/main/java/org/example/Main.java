@@ -7,6 +7,7 @@ public class Main {
         System.out.println("Welcome to Elevator Control System!");
 
         Elevator elevator = new Elevator();
-        elevator.start();
+        Thread thread = new Thread(elevator);
+        thread.start();
     }
 }

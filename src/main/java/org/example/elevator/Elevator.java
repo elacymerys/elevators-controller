@@ -4,11 +4,11 @@ import org.example.request.Request;
 
 import java.util.ArrayList;
 
-public class Elevator {
+public class Elevator implements Runnable {
     private int currentFloor = 0;
     private final ArrayList<Request> requests = new ArrayList<>();
 
-    public void start() {
+    public void run() {
         System.out.println("Elevator has started working");
 
         while (true) {
