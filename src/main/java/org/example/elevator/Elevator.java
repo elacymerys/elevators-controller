@@ -3,6 +3,7 @@ package org.example.elevator;
 import org.example.request.Request;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Elevator implements Runnable {
     private int currentFloor = 0;
@@ -26,12 +27,12 @@ public class Elevator implements Runnable {
 
     private void processRequest(Request request) {
         int sourceFloor = request.externalRequest().sourceFloor();
-        int destinationFloor = request.internalRequest().destinationFloor();
+        List<Integer> destinationFloors = request.internalRequest().destinationFloors();
 
         // first go to external request source floor
         reachFloor(sourceFloor);
         // then go to internal request destination floor
-        reachFloor(destinationFloor);
+        for (int destinationFloor: destinationFloors.stream().distinct().toList()) reachFloor(destinationFloor);
     }
 
     private void reachFloor(int floor) {

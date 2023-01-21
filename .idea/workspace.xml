@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e9226ac-a59a-4cbb-9f94-6e38809741d1" name="Changes" comment="Run elevator in a separate thread">
+    <list default="true" id="8e9226ac-a59a-4cbb-9f94-6e38809741d1" name="Changes" comment="Add requests making functionality for one person per floor">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/elevator/Elevator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/elevator/Elevator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/request/InternalRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/request/InternalRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674247578765</updated>
-      <workItem from="1674247581302" duration="4458000" />
+      <workItem from="1674247581302" duration="6768000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1674247907491</created>
@@ -95,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674251974634</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add requests making functionality for one person per floor">
+      <created>1674252529935</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674252529935</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +125,7 @@
     <MESSAGE value="init" />
     <MESSAGE value="Add elevator logic" />
     <MESSAGE value="Run elevator in a separate thread" />
-    <option name="LAST_COMMIT_MESSAGE" value="Run elevator in a separate thread" />
+    <MESSAGE value="Add requests making functionality for one person per floor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add requests making functionality for one person per floor" />
   </component>
 </project>

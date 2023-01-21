@@ -1,3 +1,5 @@
 package org.example.request;
 
-public record InternalRequest(int destinationFloor) {}
+import java.util.List;
+
+public record InternalRequest(List<Integer> destinationFloors) {}
