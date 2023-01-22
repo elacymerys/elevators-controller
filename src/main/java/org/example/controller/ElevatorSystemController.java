@@ -17,7 +17,11 @@ public class ElevatorSystemController {
 
     public ElevatorSystemController(Building building) {
         this.building = building;
-        IntStream.range(0, building.elevatorsNumber()).forEach(id -> elevators.add(new Elevator(id)));
+        IntStream.range(0, building.elevatorsNumber()).forEach(id -> {
+            elevators.add(new Elevator(id));
+            System.out.printf("Elevator with id=%d has started working%n", id);
+        });
+        System.out.println();
     }
 
     public void start() {
@@ -71,7 +75,9 @@ public class ElevatorSystemController {
         elevators.get(elevatorId).updateStatus(currentFloor, currentDestinationFloor);
     }
 
-    public void step() {}
+    public void step() {
+        elevators.forEach(Elevator::move);
+    }
 
     public List<List<Integer>> status() {
         return elevators.stream().map(Elevator::getStatus).collect(Collectors.toList());

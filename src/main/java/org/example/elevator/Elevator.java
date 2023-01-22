@@ -5,64 +5,35 @@ import org.example.request.Request;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Elevator implements Runnable {
+public class Elevator {
     private final int id;
     private int currentFloor = 0;
     private int currentDestinationFloor = 0;
-    private volatile ArrayList<Request> requests = new ArrayList<>();
-
-    private Thread thread;
+    private State state = State.STOPPED;
+    private final ArrayList<Request> requests = new ArrayList<>();
 
     public Elevator(int id) {
         this.id = id;
     }
 
-    public void run() {
-        System.out.printf("Elevator with id=%d has started working%n", id);
+    public void move() {
+        if (requests.isEmpty()) return;
 
-        while (true) {
-            if (!requests.isEmpty()) {
-                // first-come, first-serve approach
-                Request request = requests.remove(0);
-                try {
-                    processRequest(request);
-                } catch (InterruptedException ignored) {
-                }
-            }
+        if (state == State.STOPPED) {
+            Request request = requests.get(0);
+            state = State.MOVING;
+            currentDestinationFloor = request.floor();
         }
-    }
 
-    private void processRequest(Request request) throws InterruptedException {
-        thread = new Thread(() -> {
-            try {
-                System.out.println("processRequest: " + request);
-                reachFloor(request.floor());
-            } catch (InterruptedException ignored) {
-            }
-        });
-        thread.start();
-        try {
-            thread.join();
-        } catch (InterruptedException ignored) {
+        if (currentFloor < currentDestinationFloor) {
+            currentFloor++;
+        } else if (currentFloor > currentDestinationFloor) {
+            currentFloor--;
         }
-    }
 
-    private void reachFloor(int floor) throws InterruptedException {
-        currentDestinationFloor = floor;
-        int startFloor = currentFloor;
-
-        if (startFloor < floor) {
-            for (int reachedFloor = startFloor + 1; reachedFloor <= floor; reachedFloor++) {
-                Thread.sleep(1000);
-                System.out.println("Elevator=" + id + "; Floor: " + reachedFloor);
-                currentFloor = reachedFloor;
-            }
-        } else if (startFloor > floor) {
-            for (int reachedFloor = startFloor - 1; reachedFloor >= floor; reachedFloor--) {
-                Thread.sleep(1000);
-                System.out.println("Elevator=" + id + "; Floor: " + reachedFloor);
-                currentFloor = reachedFloor;
-            }
+        if (currentFloor == currentDestinationFloor) {
+            state = State.STOPPED;
+            requests.remove(0);
         }
     }
 
@@ -78,6 +49,6 @@ public class Elevator implements Runnable {
         this.currentFloor = currentFloor;
         this.currentDestinationFloor = currentDestinationFloor;
         requests.add(0, new Request(currentDestinationFloor));
-        if (thread != null) thread.interrupt();
+        state = State.MOVING;
     }
 }
