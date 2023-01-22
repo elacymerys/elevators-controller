@@ -1,30 +1,45 @@
 package org.example;
 
+import org.example.controller.ElevatorSystemController;
 import org.example.elevator.Direction;
-import org.example.elevator.Elevator;
-import org.example.request.ExternalRequest;
-import org.example.request.InternalRequest;
-import org.example.request.Request;
-
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Elevator Control System!");
 
-        Elevator elevator = new Elevator();
-        Thread thread = new Thread(elevator);
-        thread.start();
+        ElevatorSystemController controller = new ElevatorSystemController(4);
+        controller.start();
 
-        ExternalRequest er1 = new ExternalRequest(3, Direction.DOWN);
-        InternalRequest ir1 = new InternalRequest(List.of(0));
-        Request r1 = new Request(er1, ir1);
+        controller.pickup(3, Direction.UP);
 
-        ExternalRequest er2 = new ExternalRequest(0, Direction.UP);
-        InternalRequest ir2 = new InternalRequest(List.of(6, 3, 2, 3, 4, 6));
-        Request r2 = new Request(er2, ir2);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
-        elevator.addRequest(r1);
-        elevator.addRequest(r2);
+        System.out.println(controller.status());
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        controller.pickup(6, Direction.UP);
+
+        System.out.println(controller.status());   // [0, 2, 3]
+
+        controller.update(1, 6, 2);
+        controller.update(0, 6, 2);
+        System.out.println(controller.status());
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(controller.status());
     }
 }
