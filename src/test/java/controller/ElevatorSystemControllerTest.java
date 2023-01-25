@@ -3,7 +3,7 @@ package controller;
 import org.example.building.Building;
 import org.example.controller.ElevatorSystemController;
 import org.example.elevator.Direction;
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.util.List;
@@ -20,7 +20,7 @@ public class ElevatorSystemControllerTest {
         );
 
         List<List<Integer>> elevatorStatuses = controller.status();
-        Assert.assertEquals(elevatorsNumber, elevatorStatuses.size());
+        assertEquals(elevatorsNumber, elevatorStatuses.size());
 
         IntStream.range(0, elevatorsNumber).forEach(elevatorId -> {
             List<Integer> elevatorStatus = elevatorStatuses.get(elevatorId);
@@ -29,9 +29,9 @@ public class ElevatorSystemControllerTest {
             int currentFloor = elevatorStatus.get(1);
             int destinationFloor = elevatorStatus.get(2);
 
-            Assert.assertEquals(elevatorId, id);
-            Assert.assertEquals(currentFloor, 0);
-            Assert.assertEquals(destinationFloor, 0);
+            assertEquals(elevatorId, id);
+            assertEquals(currentFloor, 0);
+            assertEquals(destinationFloor, 0);
         });
     }
 
@@ -44,7 +44,7 @@ public class ElevatorSystemControllerTest {
         IntStream.range(0, elevatorsNumber).forEach(elevatorId -> controller.update(elevatorId, 2, 4));
 
         List<List<Integer>> elevatorStatuses = controller.status();
-        Assert.assertEquals(elevatorsNumber, elevatorStatuses.size());
+        assertEquals(elevatorsNumber, elevatorStatuses.size());
 
         IntStream.range(0, elevatorsNumber).forEach(elevatorId -> {
             List<Integer> elevatorStatus = elevatorStatuses.get(elevatorId);
@@ -53,9 +53,9 @@ public class ElevatorSystemControllerTest {
             int currentFloor = elevatorStatus.get(1);
             int destinationFloor = elevatorStatus.get(2);
 
-            Assert.assertEquals(elevatorId, id);
-            Assert.assertEquals(currentFloor, 2);
-            Assert.assertEquals(destinationFloor, 4);
+            assertEquals(elevatorId, id);
+            assertEquals(currentFloor, 2);
+            assertEquals(destinationFloor, 4);
         });
     }
 
@@ -69,7 +69,7 @@ public class ElevatorSystemControllerTest {
         controller.step();
 
         List<List<Integer>> elevatorStatuses = controller.status();
-        Assert.assertEquals(elevatorsNumber, elevatorStatuses.size());
+        assertEquals(elevatorsNumber, elevatorStatuses.size());
 
         IntStream.range(0, elevatorsNumber).forEach(elevatorId -> {
             List<Integer> elevatorStatus = elevatorStatuses.get(elevatorId);
@@ -78,9 +78,9 @@ public class ElevatorSystemControllerTest {
             int currentFloor = elevatorStatus.get(1);
             int destinationFloor = elevatorStatus.get(2);
 
-            Assert.assertEquals(elevatorId, id);
-            Assert.assertEquals(currentFloor, 1);
-            Assert.assertEquals(destinationFloor, 3);
+            assertEquals(elevatorId, id);
+            assertEquals(currentFloor, 1);
+            assertEquals(destinationFloor, 3);
         });
     }
 }
