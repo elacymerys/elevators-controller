@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e9226ac-a59a-4cbb-9f94-6e38809741d1" name="Changes" comment="Add README">
+    <list default="true" id="8e9226ac-a59a-4cbb-9f94-6e38809741d1" name="Changes" comment="Add unit tests for Elevator class and fix bugs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ElevatorSystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ElevatorSystemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/elevator/Elevator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/elevator/Elevator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,56 +44,71 @@
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ElevatorTest.updateStatusMoreRequestsTest">
-    <configuration name="ElevatorTest.getCurrentDestinationFloorDistanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ElevatorSystemControllerTest">
+    <configuration name="ElevatorSystemControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="elevators-controller" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="elevator.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="elevator" />
-      <option name="MAIN_CLASS_NAME" value="elevator.ElevatorTest" />
-      <option name="METHOD_NAME" value="getCurrentDestinationFloorDistanceTest" />
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.ElevatorSystemControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ElevatorSystemControllerTest.statusInitTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="elevators-controller" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.ElevatorSystemControllerTest" />
+      <option name="METHOD_NAME" value="statusInitTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ElevatorTest.getWaitingRequestsNumberTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ElevatorSystemControllerTest.statusUpdateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="elevators-controller" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="elevator.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="elevator" />
-      <option name="MAIN_CLASS_NAME" value="elevator.ElevatorTest" />
-      <option name="METHOD_NAME" value="getWaitingRequestsNumberTest" />
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.ElevatorSystemControllerTest" />
+      <option name="METHOD_NAME" value="statusUpdateTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ElevatorTest.updateStatusMoreRequestsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ElevatorSystemControllerTest.stepTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="elevators-controller" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="elevator.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="elevator" />
-      <option name="MAIN_CLASS_NAME" value="elevator.ElevatorTest" />
-      <option name="METHOD_NAME" value="updateStatusMoreRequestsTest" />
+      <option name="PACKAGE_NAME" value="controller" />
+      <option name="MAIN_CLASS_NAME" value="controller.ElevatorSystemControllerTest" />
+      <option name="METHOD_NAME" value="stepTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ElevatorTest.updateStatusNoRequestsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ElevatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="elevators-controller" />
       <extension name="coverage">
         <pattern>
@@ -106,42 +118,25 @@
       </extension>
       <option name="PACKAGE_NAME" value="elevator" />
       <option name="MAIN_CLASS_NAME" value="elevator.ElevatorTest" />
-      <option name="METHOD_NAME" value="updateStatusNoRequestsTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ElevatorTest.updateStatusTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="elevators-controller" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="elevator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="elevator" />
-      <option name="MAIN_CLASS_NAME" value="elevator.ElevatorTest" />
-      <option name="METHOD_NAME" value="updateStatusTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ElevatorTest.getCurrentDestinationFloorDistanceTest" />
-      <item itemvalue="JUnit.ElevatorTest.getWaitingRequestsNumberTest" />
-      <item itemvalue="JUnit.ElevatorTest.updateStatusMoreRequestsTest" />
-      <item itemvalue="JUnit.ElevatorTest.updateStatusNoRequestsTest" />
-      <item itemvalue="JUnit.ElevatorTest.updateStatusTest" />
+      <item itemvalue="JUnit.ElevatorSystemControllerTest" />
+      <item itemvalue="JUnit.ElevatorSystemControllerTest.statusInitTest" />
+      <item itemvalue="JUnit.ElevatorSystemControllerTest.statusUpdateTest" />
+      <item itemvalue="JUnit.ElevatorSystemControllerTest.stepTest" />
+      <item itemvalue="JUnit.ElevatorTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ElevatorTest.updateStatusMoreRequestsTest" />
-        <item itemvalue="JUnit.ElevatorTest.updateStatusNoRequestsTest" />
-        <item itemvalue="JUnit.ElevatorTest.updateStatusTest" />
-        <item itemvalue="JUnit.ElevatorTest.getWaitingRequestsNumberTest" />
-        <item itemvalue="JUnit.ElevatorTest.getCurrentDestinationFloorDistanceTest" />
+        <item itemvalue="JUnit.ElevatorSystemControllerTest" />
+        <item itemvalue="JUnit.ElevatorSystemControllerTest.stepTest" />
+        <item itemvalue="JUnit.ElevatorSystemControllerTest.statusUpdateTest" />
+        <item itemvalue="JUnit.ElevatorSystemControllerTest.statusInitTest" />
+        <item itemvalue="JUnit.ElevatorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -153,7 +148,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674247578765</updated>
-      <workItem from="1674247581302" duration="64233000" />
+      <workItem from="1674247581302" duration="65070000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1674247907491</created>
@@ -246,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674655471730</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Add unit tests for Elevator class and fix bugs">
+      <created>1674671885613</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1674671885613</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +280,8 @@
     <MESSAGE value="Clear code" />
     <MESSAGE value="Improve direction input reader" />
     <MESSAGE value="Add README" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add README" />
+    <MESSAGE value="Add unit tests for Elevator class and fix bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add unit tests for Elevator class and fix bugs" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/elevators_controller$ElevatorTest_isBetweenTest.ic" NAME="ElevatorTest.isBetweenTest Coverage Results" MODIFIED="1674670852496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -287,7 +290,7 @@
     <SUITE FILE_PATH="coverage/elevators_controller$ElevatorTest_isIdleTest.ic" NAME="ElevatorTest.isIdleTest Coverage Results" MODIFIED="1674670546318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>elevator.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/elevators_controller$ElevatorTest.ic" NAME="ElevatorTest Coverage Results" MODIFIED="1674670743679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/elevators_controller$ElevatorTest.ic" NAME="ElevatorTest Coverage Results" MODIFIED="1674671924239" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>elevator.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/elevators_controller$ElevatorTest_getStatusTest.ic" NAME="ElevatorTest.getStatusTest Coverage Results" MODIFIED="1674669208085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
