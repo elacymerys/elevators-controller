@@ -98,7 +98,7 @@ public class ElevatorSystemController {
 
         // co w przypadku, gdy nie ma windy, która ma wybrany ten sam kierunek?
         // wybieramy windę 'najmniej zajętą', czy która ma najmniej requestów do wykonania
-        choosenElevator = elevators.stream().min(Comparator.comparingInt(Elevator::getRequestsNumber));
+        choosenElevator = elevators.stream().min(Comparator.comparingInt(Elevator::getWaitingRequestsNumber));
         choosenElevator.ifPresent(elevator -> elevator.addRequest(new Request(sourceFloor, direction)));
     }
 

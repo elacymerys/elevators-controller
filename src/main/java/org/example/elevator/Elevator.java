@@ -11,7 +11,7 @@ public class Elevator {
     private int currentDestinationFloor = 0;
     private State currentState = State.STOPPED;
     private Direction chosenDirection = Direction.UP;
-    private TreeSet<Request> currentRequests = new TreeSet<>();
+    private final TreeSet<Request> currentRequests = new TreeSet<>();
     private final TreeSet<Request> pendingUpRequests = new TreeSet<>();
     private final TreeSet<Request> pendingDownRequests = new TreeSet<>();
 
@@ -24,7 +24,7 @@ public class Elevator {
     }
 
     public void move() {
-        if (currentRequests.isEmpty()) {
+        if (currentState == State.STOPPED && currentRequests.isEmpty()) {
             addPendingRequestsToCurrentRequests();
             if (currentRequests.isEmpty()) return;
         }
@@ -50,18 +50,20 @@ public class Elevator {
     private void addPendingRequestsToCurrentRequests() {
         if (chosenDirection == Direction.UP) {
             if (!pendingDownRequests.isEmpty()) {
-                currentRequests = pendingDownRequests;
+                currentRequests.addAll(pendingDownRequests);
                 pendingDownRequests.clear();
+                chosenDirection = Direction.DOWN;
             } else if (!pendingUpRequests.isEmpty()) {
-                currentRequests = pendingUpRequests;
+                currentRequests.addAll(pendingUpRequests);
                 pendingUpRequests.clear();
             }
         } else {
             if (!pendingUpRequests.isEmpty()) {
-                currentRequests = pendingUpRequests;
+                currentRequests.addAll(pendingUpRequests);
                 pendingUpRequests.clear();
+                chosenDirection = Direction.UP;
             } else if (!pendingDownRequests.isEmpty()) {
-                currentRequests = pendingDownRequests;
+                currentRequests.addAll(pendingDownRequests);
                 pendingDownRequests.clear();
             }
         }
@@ -89,11 +91,11 @@ public class Elevator {
     }
 
     public boolean isIdle() {
-        return currentRequests.isEmpty() && pendingUpRequests.isEmpty() && pendingDownRequests.isEmpty();
+        return currentState == State.STOPPED && currentRequests.isEmpty() && pendingUpRequests.isEmpty() && pendingDownRequests.isEmpty();
     }
 
     public boolean isBetween(int floor) {
-        return floor >= currentDestinationFloor && floor <= currentFloor;
+        return floor >= currentFloor && floor <= currentDestinationFloor;
     }
 
     public int getCurrentFloorDistance(int floor) {
@@ -104,7 +106,7 @@ public class Elevator {
         return Math.abs(floor - currentDestinationFloor);
     }
 
-    public int getRequestsNumber() {
-        return currentRequests.size();
+    public int getWaitingRequestsNumber() {
+        return currentRequests.size() + pendingUpRequests.size() + pendingDownRequests.size();
     }
 }
