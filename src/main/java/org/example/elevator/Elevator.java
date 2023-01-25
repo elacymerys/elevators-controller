@@ -1,10 +1,8 @@
 package org.example.elevator;
 
-import com.sun.source.tree.Tree;
 import org.example.request.Request;
 
 import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
 
 public class Elevator {
