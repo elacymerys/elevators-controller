@@ -6,8 +6,10 @@ import org.example.elevator.Elevator;
 import org.example.reader.UserInputReader;
 import org.example.request.Request;
 
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -36,7 +38,7 @@ public class ElevatorSystemController {
                         5
                 );
             } catch (InterruptedException e) {
-                System.out.println("Bye bye!");
+                System.out.println("See you!");
                 return;
             }
 
@@ -45,7 +47,7 @@ public class ElevatorSystemController {
                     case 1 -> {
                         System.out.println("Please provide:");
                         int sourceFloor = UserInputReader.readInt("\tsource floor: ", 0, building.floorsNumber());
-                        Direction direction = UserInputReader.readDirection("\tdirections:\n\t\t1. UP\n\t\t2. DOWN\n\tChoose direction: ");
+                        Direction direction = sourceFloor == 0 ? Direction.UP : sourceFloor == building.floorsNumber() ? Direction.DOWN : UserInputReader.readDirection();
                         pickup(sourceFloor, direction);
                     }
                     case 2 -> {
@@ -68,15 +70,44 @@ public class ElevatorSystemController {
     }
 
     public void pickup(int sourceFloor, Direction direction) {
-        elevators.get(0).addRequest(new Request(sourceFloor));
-    }
+        // wybieramy windę, która jest bezczynna, tzn. nie ma żadnych requestów do przetworzenia
+        Optional<Elevator> choosenElevator = elevators.stream().filter(Elevator::isIdle).findFirst();
+        if (choosenElevator.isPresent()) {
+            choosenElevator.get().addRequest(new Request(sourceFloor, direction));
+            return;
+        }
 
-    public void update(int elevatorId, int currentFloor, int currentDestinationFloor) {
-        elevators.get(elevatorId).updateStatus(currentFloor, currentDestinationFloor);
+        // wybieramy windę z wybranym tym samym kierunkiem, gdzie jesteśmy na jej drodze i jest ona w najmniejszej odległości od nas
+        choosenElevator = elevators.stream()
+                .filter(elevator -> direction == elevator.getChosenDirection())
+                .filter(elevator -> elevator.isBetween(sourceFloor))
+                .min(Comparator.comparingInt(elevator -> elevator.getCurrentFloorDistance(sourceFloor)));
+        if (choosenElevator.isPresent()) {
+            choosenElevator.get().addRequest(new Request(sourceFloor, direction));
+            return;
+        }
+
+        // wybieramy windę, która od destinationFloor ma do nas najbliżej
+        choosenElevator = elevators.stream()
+                .filter(elevator -> direction == elevator.getChosenDirection())
+                .min(Comparator.comparingInt(elevator -> elevator.getCurrentDestinationFloorDistance(sourceFloor)));
+        if (choosenElevator.isPresent()) {
+            choosenElevator.get().addRequest(new Request(sourceFloor, direction));
+            return;
+        }
+
+        // co w przypadku, gdy nie ma windy, która ma wybrany ten sam kierunek?
+        // wybieramy windę 'najmniej zajętą', czy która ma najmniej requestów do wykonania
+        choosenElevator = elevators.stream().min(Comparator.comparingInt(Elevator::getRequestsNumber));
+        choosenElevator.ifPresent(elevator -> elevator.addRequest(new Request(sourceFloor, direction)));
     }
 
     public void step() {
         elevators.forEach(Elevator::move);
+    }
+
+    public void update(int elevatorId, int currentFloor, int currentDestinationFloor) {
+        elevators.get(elevatorId).updateStatus(currentFloor, currentDestinationFloor);
     }
 
     public List<List<Integer>> status() {
