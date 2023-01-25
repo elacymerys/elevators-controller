@@ -29,11 +29,11 @@ public class UserInputReader {
         }
     }
 
-    public static Direction readDirection(String message) throws InterruptedException {
+    public static Direction readDirection() throws InterruptedException {
         int number;
 
         while (true) {
-            System.out.print(message);
+            System.out.print("\tdirections:\n\t\t1. UP\n\t\t2. DOWN\n\tChoose direction: ");
             String input = scanner.nextLine();
             if (Objects.equals(input, "q")) throw new InterruptedException();
 

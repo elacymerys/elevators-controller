@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e9226ac-a59a-4cbb-9f94-6e38809741d1" name="Changes" comment="Add input readers and actions handling">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/elevator/State.java" afterDir="false" />
+    <list default="true" id="8e9226ac-a59a-4cbb-9f94-6e38809741d1" name="Changes" comment="Improve choosing elevator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/ElevatorSystemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/ElevatorSystemController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/elevator/Elevator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/elevator/Elevator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/reader/UserInputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/reader/UserInputReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/request/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/request/Request.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +22,8 @@
       <list>
         <option value="Interface" />
         <option value="Record" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,19 +40,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="elevators-controller" />
-      <option name="PROGRAM_PARAMETERS" value="2 3" />
+      <option name="PROGRAM_PARAMETERS" value="8 4" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.*" />
@@ -76,7 +78,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1674247578765</updated>
-      <workItem from="1674247581302" duration="34984000" />
+      <workItem from="1674247581302" duration="59574000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1674247907491</created>
@@ -127,7 +129,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674397629337</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Remove threads">
+      <created>1674400423639</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674400423639</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add program arguments validation">
+      <created>1674582693912</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1674582693912</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +168,9 @@
     <MESSAGE value="Expand functionality for more than one person per floor" />
     <MESSAGE value="Implement simple visualisation" />
     <MESSAGE value="Add input readers and actions handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add input readers and actions handling" />
+    <MESSAGE value="Remove threads" />
+    <MESSAGE value="Add program arguments validation" />
+    <MESSAGE value="Improve choosing elevator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve choosing elevator" />
   </component>
 </project>
